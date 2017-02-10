@@ -6,9 +6,9 @@ Through undertaking this analysis, I realized just how many ways there are to ha
 
 Therefore, this analysis is broken out into three sets of notebooks, each outlining an alternative approach to handling the missing data in words.csv and the other EMI data:
 
-        1) Categorizing the 82 words in words.csv into 11 categories, then dropping any rows in the larger dataset with null values. In each category, if a user marks a 1 for any word in the category (marking "yes, the artist sounds like this word"), then the overall category is marked with a 1. If no words are marked with a 1, the category receives a 0. This approach is meant to not overweight any categories with words that have more words (and therefore more potential 1's) than other categories.
-        2) Same approach as above, but using the _fraction_ of words marked with 1 over total words in the category. This approach is meant to give more weight to categories that have more words with 1's than others. In addition, I then impute any remaining null values with the mean value of their respective column.
-        3) I do not categorize any words but drop any columns that have less than less than 100,000 non-null values (~47% missing data). This drops 39 features of more than 100. I then impute any remaining null values with the mean value of their respective column.
+- Approach 1: Categorizing the 82 words in words.csv into 11 categories, then dropping any rows in the larger dataset with null values. In each category, if a user marks a 1 for any word in the category (marking "yes, the artist sounds like this word"), then the overall category is marked with a 1. If no words are marked with a 1, the category receives a 0. This approach is meant to not overweight any categories with words that
+- Approach 2: Same approach as above, but using the _fraction_ of words marked with 1 over total words in the category. This approach is meant to give more weight to categories that have more words with 1's than others. In addition, I then impute any remaining null values with the mean value of their respective column.
+- Approach 3: I do not categorize any words but drop any columns that have less than less than 100,000 non-null values (~47% missing data). This drops 39 features of more than 100. I then impute any remaining null values with the mean value of their respective column.
 
 Since the Kaggle competition was judged based on root mean squared error, I am judging my three approaches using the same metric:
 - Approach 1: 15.19
